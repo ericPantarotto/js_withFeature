@@ -228,15 +228,16 @@ export const removeCalendarfromList = function (id) {
   saveList('calendarList', state.calendarData);
 };
 
-export const addCalendarItem = function (date, recipe) {
+export const addCalendarItem = function (dt, recipe) {
   // console.log(recipe);
   const { id, image_url, title } = recipe;
+
   if (
     state.calendarData.some(
       cal =>
-        new Date(cal.date).getDate() === date.getDate() &&
-        new Date(cal.date).date.getMonth() === date.getMonth() &&
-        new Date(cal.date).date.getYear() === date.getYear()
+        new Date(cal.date).getDate() === new Date(dt).getDate() &&
+        new Date(cal.date).getMonth() === new Date(dt).getMonth() &&
+        new Date(cal.date).getYear() === new Date(dt).getYear()
     )
   )
     return;
@@ -245,7 +246,7 @@ export const addCalendarItem = function (date, recipe) {
     id,
     image_url,
     title,
-    date,
+    dt,
     ...(recipe.key && { key: recipe.key }),
   });
 
