@@ -23,7 +23,7 @@ class PreviewViewCalender extends View {
                       <div class="preview__data">
                         <h4 class="preview__title">${this._data.title}</h4>
                         <p class="preview__publisher">${new Date(
-                          this._data.date
+                          this._data.dt
                         ).toLocaleDateString()}</p>
                       </div>
                       <div class="preview__user-generated ${
